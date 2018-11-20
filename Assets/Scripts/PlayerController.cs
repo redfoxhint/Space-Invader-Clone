@@ -30,34 +30,26 @@ public class PlayerController : MonoBehaviour
                 input = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
                 movement = input * moveSpeed * Time.deltaTime;
                 transform.position += movement;
-                SetCameraPosition(dir);
                 break;
 
             case DirectionManager.Direction.BACKWARD:
                 input = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
                 movement = input * moveSpeed * Time.deltaTime;
                 transform.position -= movement;
-                SetCameraPosition(dir);
                 break;
 
             case DirectionManager.Direction.LEFT:
                 input = new Vector3(0f, 0f, Input.GetAxis("Horizontal"));
                 movement = input * moveSpeed * Time.deltaTime;
                 transform.position += movement;
-                SetCameraPosition(dir);
                 break;
 
             case DirectionManager.Direction.RIGHT:
                 input = new Vector3(0f, 0f, Input.GetAxis("Horizontal"));
                 movement = input * moveSpeed * Time.deltaTime;
                 transform.position -= movement;
-                SetCameraPosition(dir);
                 break;
         }
     }
-
-    private void SetCameraPosition(DirectionManager.Direction dir)
-    {
-
-    }
+    
 }
