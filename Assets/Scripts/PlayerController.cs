@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float followTime;
+    [SerializeField] private float lerpTime;
     [SerializeField] private float moveSpeed;
-
-    [SerializeField] private DirectionManager dirManager;
 
     private Vector3 movement;
     private Vector3 input;
 
-    private void Start()
+    #region Event Setup
+
+    private void OnEnable()
     {
-        
+        DirectionManager.OnDirectionChanged += UpdateFacingDirection;
     }
+
+    private void OnDisable()
+    {
+        DirectionManager.OnDirectionChanged -= UpdateFacingDirection;
+    }
+    #endregion
 
     private void Update()
     {
-        PlayerInput(dirManager.currentDirection);
+        if(!DirectionManager.instance.isChangingDirection)
+        {
+            PlayerInput(DirectionManager.instance.currentDirection);
+        }
     }
 
     private void PlayerInput(DirectionManager.Direction dir)
     {
-        switch(dir)
+        switch (dir)
         {
             case DirectionManager.Direction.FORWARD:
                 input = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
@@ -51,5 +60,10 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-    
+
+    private void UpdateFacingDirection()
+    {
+        transform.position = Vector3.zero;
+        StartCoroutine(DirectionManager.instance.ChangeFacing(transform, lerpTime));
+    }
 }
