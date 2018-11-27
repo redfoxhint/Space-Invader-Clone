@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 23076868436860040}
   - component: {fileID: 65745031150411250}
   - component: {fileID: 114349969241217174}
-  - component: {fileID: 114807665933029920}
+  - component: {fileID: 114219957808066568}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -242,6 +242,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114219957808066568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549761638304344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d63b649db5069748a97ade89bffe4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 4430959875256858}
+  turret: {fileID: 4679518520277088}
+  projectilePrefab: {fileID: 1697428545779002, guid: 04152146344f1af4c97143c19f50789a,
+    type: 2}
 --- !u!114 &114349969241217174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,16 +270,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpTime: 0.1
   moveSpeed: 15
---- !u!114 &114807665933029920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549761638304344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86af4be5953d52f4c8a9af8bb2974873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 4679518520277088}
-  target: {fileID: 0}
